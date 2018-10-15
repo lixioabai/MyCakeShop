@@ -28,17 +28,12 @@
 										<div class="col-sm-12">
 											<h4>商品分类</h4>
 											<ul class="multi-column-dropdown">
-												
-													<li><a class="list" href="goods.action?typeid=5">经典系列</a></li>
-												
-													<li><a class="list" href="goods.action?typeid=4">法式系列</a></li>
-												
-													<li><a class="list" href="goods.action?typeid=3">儿童系列</a></li>
-												
-													<li><a class="list" href="goods.action?typeid=2">零食系列</a></li>
-												
-													<li><a class="list" href="goods.action?typeid=1">冰淇淋系列</a></li>
-												
+											
+													<li><a class="list" href="goods.action?typeid=5">全部系列</a></li>
+													
+												    <c:forEach items="${ typelist}" var="t">
+													<li><a class="list" href="goods.action?typeid=5">${t.name}</a></li>		
+													</c:forEach>					
 											</ul>
 										</div>	
 									</div>
