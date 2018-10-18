@@ -14,12 +14,12 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<h1 class="navbar-brand"><a href="index.action">蛋糕店</a></h1>
+					<h1 class="navbar-brand"><a href="${pageContext.request.contextPath}">蛋糕店</a></h1>
 				</div>
 				<!--navbar-header-->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
-						<li><a href="index.action" class="active">首页</a></li>
+						<li><a href="${pageContext.request.contextPath}" class="active">首页</a></li>
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle " data-toggle="dropdown">商品分类<b class="caret"></b></a>
 							<ul class="dropdown-menu multi-column columns-2">
@@ -29,10 +29,10 @@
 											<h4>商品分类</h4>
 											<ul class="multi-column-dropdown">
 											
-													<li><a class="list" href="goods.action?typeid=5">全部系列</a></li>
+													<li><a class="list" href="${pageContext.request.contextPath}/goods_list">全部系列</a></li>
 													
 												    <c:forEach items="${ typelist}" var="t">
-													<li><a class="list" href="goods.action?typeid=5">${t.name}</a></li>		
+													<li><a class="list" href="${pageContext.request.contextPath}/goods_list?id=${t.id}">${t.name}</a></li>		
 													</c:forEach>					
 											</ul>
 										</div>	
