@@ -37,11 +37,12 @@
 					
 			<div class="col-md-12 product-model-sec">
 				
+				<c:forEach items="${list}" var="g">
 					<div class="product-grid">
 						<a href="detail.action?goodid=6">				
 							<div class="more-product"><span> </span></div>						
 							<div class="product-img b-link-stripe b-animate-go  thickbox">
-								<img src="picture/6-1.jpg" class="img-responsive" alt="夜礼服" width="240" height="240">
+								<img src="${pageContext.request.contextPath}${g.cover}" class="img-responsive" alt="${g.name} }" width="240" height="240">
 								<div class="b-wrapper">
 									<h4 class="b-animate b-from-left  b-delay03">							
 										<button>查看详情</button>
@@ -51,123 +52,15 @@
 						</a>				
 						<div class="product-info simpleCart_shelfItem">
 							<div class="product-info-cust prt_name">
-								<h4>夜礼服</h4>								
-								<span class="item_price">¥ 299</span>
+								<h4>${g.name }</h4>								
+								<span class="item_price">¥ ${g.price}</span>
 								<input type="button" class="item_add items" value="加入购物车" onclick="buy(6)">
 								<div class="clearfix"> </div>
 							</div>												
 						</div>
 					</div>
+				</c:forEach>
 				
-					<div class="product-grid">
-						<a href="detail.action?goodid=5">				
-							<div class="more-product"><span> </span></div>						
-							<div class="product-img b-link-stripe b-animate-go  thickbox">
-								<img src="picture/5-1.jpg" class="img-responsive" alt="芒果列车" width="240" height="240">
-								<div class="b-wrapper">
-									<h4 class="b-animate b-from-left  b-delay03">							
-										<button>查看详情</button>
-									</h4>
-								</div>
-							</div>
-						</a>				
-						<div class="product-info simpleCart_shelfItem">
-							<div class="product-info-cust prt_name">
-								<h4>芒果列车</h4>								
-								<span class="item_price">¥ 269</span>
-								<input type="button" class="item_add items" value="加入购物车" onclick="buy(5)">
-								<div class="clearfix"> </div>
-							</div>												
-						</div>
-					</div>
-				
-					<div class="product-grid">
-						<a href="detail.action?goodid=4">				
-							<div class="more-product"><span> </span></div>						
-							<div class="product-img b-link-stripe b-animate-go  thickbox">
-								<img src="picture/4-1.jpg" class="img-responsive" alt="玫瑰物语" width="240" height="240">
-								<div class="b-wrapper">
-									<h4 class="b-animate b-from-left  b-delay03">							
-										<button>查看详情</button>
-									</h4>
-								</div>
-							</div>
-						</a>				
-						<div class="product-info simpleCart_shelfItem">
-							<div class="product-info-cust prt_name">
-								<h4>玫瑰物语</h4>								
-								<span class="item_price">¥ 299</span>
-								<input type="button" class="item_add items" value="加入购物车" onclick="buy(4)">
-								<div class="clearfix"> </div>
-							</div>												
-						</div>
-					</div>
-				
-					<div class="product-grid">
-						<a href="detail.action?goodid=3">				
-							<div class="more-product"><span> </span></div>						
-							<div class="product-img b-link-stripe b-animate-go  thickbox">
-								<img src="picture/3-1.jpg" class="img-responsive" alt="留恋之恋" width="240" height="240">
-								<div class="b-wrapper">
-									<h4 class="b-animate b-from-left  b-delay03">							
-										<button>查看详情</button>
-									</h4>
-								</div>
-							</div>
-						</a>				
-						<div class="product-info simpleCart_shelfItem">
-							<div class="product-info-cust prt_name">
-								<h4>留恋之恋</h4>								
-								<span class="item_price">¥ 229</span>
-								<input type="button" class="item_add items" value="加入购物车" onclick="buy(3)">
-								<div class="clearfix"> </div>
-							</div>												
-						</div>
-					</div>
-				
-					<div class="product-grid">
-						<a href="detail.action?goodid=2">				
-							<div class="more-product"><span> </span></div>						
-							<div class="product-img b-link-stripe b-animate-go  thickbox">
-								<img src="picture/2-1.jpg" class="img-responsive" alt="浪漫甜心" width="240" height="240">
-								<div class="b-wrapper">
-									<h4 class="b-animate b-from-left  b-delay03">							
-										<button>查看详情</button>
-									</h4>
-								</div>
-							</div>
-						</a>				
-						<div class="product-info simpleCart_shelfItem">
-							<div class="product-info-cust prt_name">
-								<h4>浪漫甜心</h4>								
-								<span class="item_price">¥ 229</span>
-								<input type="button" class="item_add items" value="加入购物车" onclick="buy(2)">
-								<div class="clearfix"> </div>
-							</div>												
-						</div>
-					</div>
-				
-					<div class="product-grid">
-						<a href="detail.action?goodid=1">				
-							<div class="more-product"><span> </span></div>						
-							<div class="product-img b-link-stripe b-animate-go  thickbox">
-								<img src="picture/1-1.jpg" class="img-responsive" alt="玫瑰花园" width="240" height="240">
-								<div class="b-wrapper">
-									<h4 class="b-animate b-from-left  b-delay03">							
-										<button>查看详情</button>
-									</h4>
-								</div>
-							</div>
-						</a>				
-						<div class="product-info simpleCart_shelfItem">
-							<div class="product-info-cust prt_name">
-								<h4>玫瑰花园</h4>								
-								<span class="item_price">¥ 229</span>
-								<input type="button" class="item_add items" value="加入购物车" onclick="buy(1)">
-								<div class="clearfix"> </div>
-							</div>												
-						</div>
-					</div>
 				
 				<div class="clearfix"> </div>
 			</div>

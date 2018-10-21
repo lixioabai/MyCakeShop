@@ -5,9 +5,11 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.apache.commons.dbutils.handlers.MapHandler;
 import org.apache.commons.dbutils.handlers.MapListHandler;
 
+import com.lby.model.Goods;
 import com.lby.utils.DBUtil;
 
 public class GoodsDao 
@@ -32,4 +34,23 @@ public class GoodsDao
     	return r.query(sql, new MapHandler()); //得到的只有一条记录
     } 
 	
+	//
+	public List<Goods> selectGoods(int typeId,int pageNum,int pageSize) throws SQLException
+	{
+		
+		QueryRunner r=new QueryRunner(DBUtil.getDataSource());
+		if(typeId==0)
+		{
+			String sql="select * from goods limit ?,?";
+		  return	r.query(sql, new BeanListHandler<>(Goods.class),(pageNum-1)*pageSize,pageSize);
+
+		}
+		else
+		{
+			String sql="select * from goods where type_id=? limit ?,?";
+	      return	r.query(sql, new BeanListHandler<>(Goods.class),typeId,(pageNum-1)*pageSize,pageSize);
+			
+		}
+		
+	}
 }

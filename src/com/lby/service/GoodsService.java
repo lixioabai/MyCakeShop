@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.lby.dao.GoodsDao;
+import com.lby.model.Goods;
 
 public class GoodsService
 {
@@ -50,6 +51,20 @@ public class GoodsService
 			e.printStackTrace();
 		}
 		return map;
+	}
+	
+	
+	public List<Goods> selectGoods(int typeId,int pageNum,int pageSize)
+	{
+		List<Goods>  list=null;
+		try {
+			list=gDao.selectGoods(typeId, pageNum, pageSize);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return list;
 	}
 	
 	
