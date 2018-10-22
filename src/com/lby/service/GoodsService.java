@@ -6,6 +6,7 @@ import java.util.Map;
 
 import com.lby.dao.GoodsDao;
 import com.lby.model.Goods;
+import com.lby.model.Page;
 
 public class GoodsService
 {
@@ -54,17 +55,50 @@ public class GoodsService
 	}
 	
 	
-	public List<Goods> selectGoods(int typeId,int pageNum,int pageSize)
+//	public List<Goods> selectGoods(int typeId,int pageNum,int pageSize)
+//	{
+//		List<Goods>  list=null;
+//		try {
+//			list=gDao.selectGoods(typeId, pageNum, pageSize);
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		
+//		return list;
+//	}
+	
+	//得到商品页面
+	public Page getGoodsPage(int typeId,int pageNum)
 	{
-		List<Goods>  list=null;
+		Page p=new Page();
+		p.setPageNum(pageNum);
+		int totalCount=0;
+		int totalPage;
+		try
+		{
+			totalCount=gDao.getGoodsCount(typeId);
+			
+		} 
+		catch (SQLException e) 
+		{
+			
+			e.printStackTrace();
+		}
+		
+		p.SetPageSizeAndTotalCount(3, totalCount);
+		
+		List list=null;
 		try {
-			list=gDao.selectGoods(typeId, pageNum, pageSize);
+			list=gDao.selectGoods(typeId, pageNum, 3);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		return list;
+		p.setList(list);
+		
+		return p;
 	}
 	
 	

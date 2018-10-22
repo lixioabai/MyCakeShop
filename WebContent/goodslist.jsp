@@ -33,11 +33,11 @@
 	<!--products-->
 	<div class="products">	 
 		<div class="container">
-			<h2>经典系列</h2>
+			<h2> <c:choose><c:when test="${empty t}">全部系列</c:when> <c:otherwise>${t.name}</c:otherwise></c:choose> </h2> 
 					
 			<div class="col-md-12 product-model-sec">
 				
-				<c:forEach items="${list}" var="g">
+				<c:forEach items="${p.list}" var="g">
 					<div class="product-grid">
 						<a href="detail.action?goodid=6">				
 							<div class="more-product"><span> </span></div>						
@@ -65,12 +65,13 @@
 				<div class="clearfix"> </div>
 			</div>
 			<div><div style='text-align:center;'>
-<a class='btn btn-info' disabled >首页</a>
-<a class='btn btn-info' disabled >上一页</a>
-<h2 style='display:inline;'>[1/1]</h2>
-<h2 style='display:inline;'>[6]</h2>
-<a class='btn btn-info' disabled >下一页</a>
-<a class='btn btn-info' disabled >尾页</a>
+
+<a class='btn btn-info' <c:if test="${p.pageNum==1}">disabled</c:if> <c:if test="${p.pageNum!=1}">href="${pageContext.request.contextPath}/goods_list?pageNum=1&id=${id}"</c:if> >首页</a> 
+<a class='btn btn-info' <c:if test="${p.pageNum==1}">disabled</c:if> <c:if test="${p.pageNum!=1}">href="${pageContext.request.contextPath}/goods_list?pageNum=${p.pageNum-1}&id=${id}"</c:if>>上一页</a>
+<h3 style='display:inline;'>[第 ${p.pageNum} 页 / 共   ${p.getTaotalPage()}页]</h3>
+<h3 style='display:inline;'>[共 ${p.totalCount}条记录]</h3>
+<a class='btn btn-info'  <c:if test="${p.getTaotalPage()==0 ||p.pageNum==p.getTaotalPage()}">disabled</c:if> <c:if test="${p.pageNum!=p.getTaotalPage()}">href="${pageContext.request.contextPath}/goods_list?pageNum=${p.pageNum+1}&id=${id}"</c:if>>下一页</a>
+<a class='btn btn-info' <c:if test="${p.getTaotalPage()==0 ||p.pageNum==p.getTaotalPage()}">disabled</c:if>  <c:if test="${p.pageNum!=p.getTaotalPage()}">href="${pageContext.request.contextPath}/goods_list?pageNum=${p.getTaotalPage()}&id=${id}"</c:if>>尾页</a>
 <input type='text' class='form-control' style='display:inline;width:60px;' value=''/><a class='btn btn-info' href='javascript:void(0);' onclick='location.href="http://localhost:8080/test_cakeshop_jsp/index/goods.action?page="+(this.previousSibling.value)+"&typeid=5"'>GO</a>
 </div>
 </div>

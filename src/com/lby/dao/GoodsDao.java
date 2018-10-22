@@ -8,6 +8,7 @@ import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 import org.apache.commons.dbutils.handlers.MapHandler;
 import org.apache.commons.dbutils.handlers.MapListHandler;
+import org.apache.commons.dbutils.handlers.ScalarHandler;
 
 import com.lby.model.Goods;
 import com.lby.utils.DBUtil;
@@ -50,6 +51,23 @@ public class GoodsDao
 			String sql="select * from goods where type_id=? limit ?,?";
 	      return	r.query(sql, new BeanListHandler<>(Goods.class),typeId,(pageNum-1)*pageSize,pageSize);
 			
+		}
+		
+	}
+	
+	public int getGoodsCount(int typeId) throws SQLException
+	{
+		String sql="";
+		QueryRunner r=new QueryRunner(DBUtil.getDataSource());
+		if(typeId==0)
+		{
+			sql="select count(*) from goods";
+			return r.query(sql, new ScalarHandler<Long>()).intValue();
+		}
+		else
+		{
+			 sql="select count(*) from goods where type_id=?";
+			 return r.query(sql, new ScalarHandler<Long>(),typeId).intValue();
 		}
 		
 	}

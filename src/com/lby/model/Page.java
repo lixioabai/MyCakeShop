@@ -9,12 +9,15 @@ public class Page
 	private int pageSize; //每一页显示多少条
     private int totalCount; //总记录数
     private int totalPage; //总页数
+
     
     private List<Object> list;
 
     public void SetPageSizeAndTotalCount(int pageSize,int totalCount)
     {
-    	totalPage=(int)Math.ceil((double)totalCount/pageSize);
+    	this.pageSize=pageSize;
+    	this.totalCount=totalCount;
+    	this.totalPage=(int)Math.ceil((double)totalCount/pageSize);
     	
     }
     

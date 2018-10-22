@@ -21,4 +21,17 @@ public class TypeService
 	 return list;
 	  
   }
+  
+  public Type select(int id)
+  {
+	  Type t=null;
+			  try {
+				t=tDao.select(id);
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	  return t;
+	  
+  }
 }
